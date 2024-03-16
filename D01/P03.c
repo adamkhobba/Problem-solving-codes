@@ -1,31 +1,25 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
-int main ()
-{
-  char **s;
+int main() {
+  char *str;
   int t;
-  int *len;
 
   scanf("%d", &t);
-  s = malloc(t * sizeof(char *));
-  len = malloc(t * sizeof(int));
+  char s[t][100];
   int i = 0;
-  while (i < t)
-  {
+  int len[t];
+  while (i < t) {
     scanf("%s", s[i]);
-    if (s[i] == NULL)
-      return 0;
-    len[i]  = strlen(s[i]);    
-    printf("a\n");
+    len[i] = strlen(s[i]);
     i++;
   }
   i = 0;
-  while (i < t)
-  {
-    printf("%c%d%c", s[i][0], len[i] - 2, s[i][len[i]]);
+  while (i < t) {
+    if (len[i] > 10)
+      printf("%c%d%c\n", s[i][0], len[i] - 2, s[i][len[i] - 1]);
+    else
+      printf("%s\n", s[i]);
     i++;
   }
-
 }
